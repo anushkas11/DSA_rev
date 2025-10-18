@@ -1,5 +1,5 @@
 class Solution {
-    public class TreeNode {
+ public class TreeNode {
       int val;
       TreeNode left;
       TreeNode right;
@@ -10,7 +10,7 @@ class Solution {
           this.left = left;
           this.right = right;
       }
- }
+ }   
     public boolean isSymmetric(TreeNode root) {
         if (root == null) return true;
         return isMirror(root.left, root.right);
