@@ -1,7 +1,6 @@
 
 class countWords {
 
-  // Driver code
   public static void main(String[] args) {
     String str = "HI AMY AND JAY";
     int n = str.length();
