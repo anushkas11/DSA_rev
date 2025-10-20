@@ -1,0 +1,29 @@
+import java.util.*;
+
+class Solution {
+    class Pair {
+    Node node;
+    int hd;
+    Pair(Node n, int h) {
+        node = n;
+        hd = h;
+    }
+ } 
+    public ArrayList<Integer> topView(Node root) {
+        ArrayList<Integer> res = new ArrayList<>();
+        if (root == null) return res;
+        Map<Integer, Integer> map = new TreeMap<>();
+        Queue<Pair> q = new LinkedList<>();
+        q.add(new Pair(root, 0));
+        while (!q.isEmpty()) {
+            Pair p = q.poll();
+            if (!map.containsKey(p.hd)) map.put(p.hd, p.node.data);
+            if (p.node.left != null) q.add(new Pair(p.node.left, p.hd - 1));
+            if (p.node.right != null) q.add(new Pair(p.node.right, p.hd + 1));
+        }
+        res.addAll(map.values());
+        return res;
+    }
+}
+
+
